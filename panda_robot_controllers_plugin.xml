@@ -1,0 +1,10 @@
+<library path="lib/libpanda_robot_controllers">
+  <class name="panda_robot_controllers/CartesianVelocityExampleController" type="panda_robot_controllers::CartesianVelocityExampleController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      A controller that executes a short motion based on cartesian velocities to demonstrate correct usage
+    </description>
+  </class>
+  
+</library>
+
+

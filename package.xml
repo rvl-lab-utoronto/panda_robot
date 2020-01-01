@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <package>
-  <name>panda_arm</name>
+  <name>panda_robot</name>
   <version>0.1.0</version>
-  <description>Panda Arm</description>
+  <description>Panda Robot</description>
   <license>BSD</license>
 
-  <author email="melissafm24@gmail.com">Melissa Mozifian</author>
-  <maintainer email="melissafm24@gmail.com">Melissa Mozifian</maintainer>
+  <author email="x@y.com">Florian Shkurti</author>
+  <maintainer email="x@y.com">Florian Shkurti</maintainer>
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>message_generation</build_depend>
@@ -21,7 +21,16 @@
   <build_depend>tf2_ros</build_depend>
   <build_depend>tf2_eigen</build_depend>
   <build_depend>tf2_geometry_msgs</build_depend>
-
+  <build_depend>controller_interface</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <build_depend>franka_hw</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>hardware_interface</build_depend>
+  <build_depend>realtime_tools</build_depend>
+  <build_depend>roscpp</build_depend>
+  
+  <build_depend>message_runtime</build_depend>
+  
   <run_depend>pluginlib</run_depend>
   <run_depend>joy</run_depend>
   <run_depend>pcl_ros</run_depend>
@@ -30,6 +39,22 @@
   <run_depend>tf2_ros</run_depend>
   <run_depend>tf2_eigen</run_depend>
   <run_depend>tf2_geometry_msgs</run_depend>
+  <run_depend>controller_interface</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>franka_hw</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>hardware_interface</run_depend>
+  <run_depend>message_generation</run_depend>
+  <run_depend>realtime_tools</run_depend>
+  <run_depend>roscpp</run_depend>
+  
+  <run_depend>franka_control</run_depend>
+  <run_depend>franka_description</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>panda_moveit_config</run_depend>
+  <run_depend>rospy</run_depend>
 
-
+  <export>
+    <controller_interface plugin="${prefix}/panda_robot_controllers_plugin.xml"/>
+  </export>
 </package>

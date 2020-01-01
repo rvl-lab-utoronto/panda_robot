@@ -1,13 +1,13 @@
 ## ! DO NOT MANUALLY INVOKE THIS setup.py, USE CATKIN INSTEAD
 
-from distutils.core import setup
+import distutils.core 
 from catkin_pkg.python_setup import generate_distutils_setup
 
 # fetch values from package.xml
 setup_args = generate_distutils_setup(
-    packages=['panda_arm'],
+    packages=['panda_robot'],
     package_dir={'': 'src'},
-    requires=['std_msgs', 'rospy', 'message_filters', 'gps_common', 'sensor_msgs']
+    requires=['std_msgs', 'rospy', 'message_filters', 'sensor_msgs']
 )
 
-setup(**setup_args)
+distutils.core.setup(**setup_args)

@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="robot_ip" default="192.168.131.40"/>
+  <arg name="load_gripper" default="true" />
+  <arg name="launch_rviz" default="true" />
+
+  <include file="$(find franka_control)/launch/franka_control.launch" >
+    <arg name="robot_ip" value="$(arg robot_ip)" />
+    <arg name="load_gripper" value="$(arg load_gripper)" />
+  </include>
+
+  <rosparam command="load" file="$(find panda_robot)/config/franka_controllers.yaml" />
+
+  <node name="controller_spawner1" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+	args="cartesian_velocity_example_controller"/>
+
+  <node name="controller_spawner2" pkg="controller_manager" type="spawner" respawn="false" output="screen"
+	args="--stopped position_joint_trajectory_controller"/>
+  
+
+  <include file="$(find panda_robot)/launch/move_group.launch">
+    <arg name="load_gripper" value="$(arg load_gripper)" />
+  </include>
+
+  <include file="$(find panda_robot)/launch/moveit_rviz.launch" if="$(arg launch_rviz)" />
+</launch>
+

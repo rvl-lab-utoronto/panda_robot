@@ -7,7 +7,7 @@
 
 
 <node pkg="teleop_twist_joy" name="teleop_twist_joy" type="teleop_node">
-  <rosparam command="load" file="/home/florian/code/RLProject/Panda/input_devices/config.yaml" />
+  <rosparam command="load" file="$(find panda_robot)/config/logitech.yaml" />
 </node>
   
 
