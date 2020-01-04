@@ -6,6 +6,7 @@ import rospy
 
 import actionlib
 from std_msgs.msg import String
+from sensor_msgs.msg import Image
 from geometry_msgs.msg import *
 
 import franka_gripper
@@ -50,7 +51,8 @@ def all_close(goal, actual, tolerance):
 
 class PandaClient(object):
     def __init__(self, moveit_safety_zone=[[-np.inf, np.inf], [-np.inf, np.inf], [-np.inf, np.inf]],
-                 ee_safety_zone=[[-np.inf, np.inf], [-np.inf, np.inf], [-np.inf, np.inf]]):
+                 ee_safety_zone=[[-np.inf, np.inf], [-np.inf, np.inf], [-np.inf, np.inf]],
+                 enable_kinect=True):
         
         super(PandaClient, self).__init__()
 
@@ -144,6 +146,8 @@ class PandaClient(object):
 
         self.O_P_EE_timestamp_secs = None
         self.O_P_EE_timestamp_secs_prev = None
+        self.depth_image = None
+        self.rgb_image = None
         
         self.home_pose_joint_values = [0.02691706043507969,
                                        0.047798763040059276,
@@ -169,6 +173,16 @@ class PandaClient(object):
         self.state_subscriber = rospy.Subscriber('/franka_state_controller/franka_states',
                                                  FrankaState,
                                                  self.update_state)
+
+        if enable_kinect:
+            self.depth_subscriber = rospy.Subscriber('/depth/image_raw', Image, self.update_depth_image)
+            self.rgb_subscriber = rospy.Subscriber('/rgb/image_raw', Image, self.update_rgb_image)
+
+    def update_depth_image(self, data):
+        self.depth_image = data
+
+    def update_rgb_image(self, data):
+        self.rgb_image = data
         
     def ee_inside_safety_zone(self, xyz):
         return xyz[0] >= self.ee_safety_zone[0][0] and xyz[0] <= self.ee_safety_zone[0][1] and \

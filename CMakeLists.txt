@@ -12,7 +12,6 @@ find_package(catkin REQUIRED
   geometry_msgs
   hardware_interface
   message_generation
-  pluginlib
   realtime_tools
   roscpp
   pluginlib

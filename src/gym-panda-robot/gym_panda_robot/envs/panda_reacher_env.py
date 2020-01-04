@@ -29,7 +29,7 @@ class PandaReacherEnv(gym.Env):
 
         dt = 0.1
         self.rate = rospy.Rate(1.0/dt) # apply policy at 10Hz
-        self.panda_client = PandaClient(ee_safety_zone=[[0.2, 0.7], [-0.3, 0.05], [0.15, 0.4]])
+        self.panda_client = PandaClient(ee_safety_zone=[[0.2, 0.7], [-0.3, 0.05], [0.15, 0.4]], enable_kinect=True)
         self.hole_goal = np.array((0.455, -0.005, 0.25))
         self.threshold = 0.05
         self.sparse = False
@@ -94,9 +94,6 @@ class PandaReacherEnv(gym.Env):
         self.panda_client.set_ee_velocity(twist)
         
     
-if __name__ == '__main__':
-    panda_robot = PandaReacherEnv()
-    panda_robot.run_go_to_boundary_test()
         
 
     

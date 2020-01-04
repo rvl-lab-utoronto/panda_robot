@@ -20,20 +20,6 @@
         </geometry>
       </collision>
 
-    <visual>
-      <origin rpy="0 0 0" xyz="0.502 -0.075 0.0"/>
-      <geometry>
-        <mesh filename="package://franka_description/meshes/collision/Robotic_Arm_Test_Holder.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-    </visual>
-
-    <collision>
-      <origin rpy="0 0 0" xyz="0.502 -0.075 0.0"/>
-      <geometry>
-        <mesh filename="package://franka_description/meshes/collision/Robotic_Arm_Test_Holder.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-    </collision>
-
     </link>
     <link name="${arm_id}_link1">
       <visual>
