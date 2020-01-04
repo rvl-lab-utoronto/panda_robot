@@ -6,7 +6,7 @@ We assume there are two Ubuntu 18.04 machines: one running real-time Linux (let'
 We assume ROS Melodic and libfranka 0.5 have already been installed.
 ```
 cd ~/catkin_ws/src
-git clone https://github.com/florianshkurti/panda_robot.git
+git clone https://github.com/rvl-lab-utoronto/panda_robot.git
 cd ..
 catkin_make
 ```
@@ -16,7 +16,7 @@ We assume ROS Melodic, libfranka 0.5, OpenAI gym, and the Kinect Azure drivers h
 ```
 Install ROS Melodic, libfranka 0.5, OpenAI Gym
 cd ~/catkin_ws/src
-git clone https://github.com/florianshkurti/panda_robot.git
+git clone https://github.com/rvl-lab-utoronto/panda_robot.git
 cd ..
 catkin_make
 ```
