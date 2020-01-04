@@ -432,7 +432,7 @@ class PandaClient(object):
     def is_in_collision_mode(self):
         if self.franka_state is None:
             return False
-        
+
         return self.franka_state.robot_mode == FrankaState.ROBOT_MODE_REFLEX
     
     def is_in_move_mode(self):

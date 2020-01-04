@@ -22,6 +22,6 @@
     <arg name="load_gripper" value="$(arg load_gripper)" />
   </include>
 
-  <include file="$(find panda_robot)/launch/moveit_rviz.launch" if="$(arg launch_rviz)" />
+  <!--include file="$(find panda_robot)/launch/moveit_rviz.launch" if="$(arg launch_rviz)" /-->
 </launch>
 

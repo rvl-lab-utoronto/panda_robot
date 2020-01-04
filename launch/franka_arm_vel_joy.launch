@@ -3,32 +3,14 @@
   <arg name="robot_ip" default="192.168.131.40"/>
   <arg name="load_gripper" default="true" />
   <arg name="launch_rviz" default="true" />
-  <!--include file="$(find franka_control)/launch/franka_control.launch" >
-    <arg name="robot_ip" value="$(arg robot_ip)" />
-    <arg name="load_gripper" value="$(arg load_gripper)" />
-  </include-->
-
-  <rosparam command="load" file="$(find franka_example_controllers)/config/franka_example_controllers.yaml" />
-  <rosparam command="load" file="$(find panda_gym)/config/franka_controllers.yaml" />
-
-  <node name="controller_spawner1" pkg="controller_manager" type="spawner" respawn="false" output="screen"
-	args="cartesian_velocity_example_controller"/>
-
-  <node name="controller_spawner2" pkg="controller_manager" type="spawner" respawn="false" output="screen"
-	args="--stopped position_joint_trajectory_controller"/>
-  
-
-  <include file="$(find panda_moveit_config)/launch/move_group.launch">
-    <arg name="load_gripper" value="$(arg load_gripper)" />
-  </include>
   
   <node pkg="joy" type="joy_node" name="logitech_joy" >
     <param name="deadzone" value="0.1" />
     <param name="autorepeat_rate" value="30" />
   </node>
 
-  <node pkg="panda_gym" type="remap_joy_to_twist.py" name="franka_joystick_mapper" output="screen" required="true"/>
+  <node pkg="panda_robot" type="remap_joy_to_twist.py" name="franka_joystick_mapper" output="screen" required="true"/>
 
-  <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch" if="$(arg launch_rviz)" />
+  <!--include file="$(find panda_moveit_config)/launch/moveit_rviz.launch" if="$(arg launch_rviz)" /-->
 </launch>
 
