@@ -3,7 +3,7 @@
 We assume there are two Ubuntu 18.04 machines: one running real-time Linux (let's assume it's an Intel NUC), called NUC and connected directly to the Franka FCI computer via the network 192.168.131.x, and another (let's assume it's a GPU-enabled machine), called GPU and connected to the NUC via the network 192.168.132.x. We assume you have followed the instructions for setting up ROS communication between different machines. 
 
 ## Installation on the NUC machine
-We assume ROS Melodic and libfranka 0.5 have already been installed.
+We assume ROS Melodic and libfranka 0.5, franka_ros have already been installed. Note: please install franka_ros from source, not as a binary through apt-get. Checkout the melodic-devel branch.
 ```
 cd ~/catkin_ws/src
 git clone https://github.com/rvl-lab-utoronto/panda_robot.git
@@ -12,9 +12,8 @@ catkin_make
 ```
 
 ## Installation on the GPU machine
-We assume ROS Melodic, libfranka 0.5, OpenAI gym, and the Kinect Azure drivers have already been installed.
+We assume ROS Melodic, libfranka 0.5, franka_ros, OpenAI gym, and the Kinect Azure drivers have already been installed. Note: please install franka_ros from source, not as a binary through apt-get. Checkout the melodic-devel branch.
 ```
-Install ROS Melodic, libfranka 0.5, OpenAI Gym
 cd ~/catkin_ws/src
 git clone https://github.com/rvl-lab-utoronto/panda_robot.git
 cd ..
