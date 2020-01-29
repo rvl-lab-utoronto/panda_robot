@@ -3,7 +3,7 @@ import numpy as np
 
 
 if __name__ == '__main__':
-    env = gym.make('gym_panda_robot:panda-robot-reacher-v0')
+    env = gym.make('gym_panda_robot:panda-robot-reacher-v1')
 
     v = np.array([1.0, 1.0, 1.0])
     
@@ -17,6 +17,7 @@ if __name__ == '__main__':
             action = np.array([0.0, 0.0, 0.0])
             action[epoch % 3] = v[epoch % 3]
             obs, reward, done, info = env.step(action)
+        print(obs)
             
         
         

@@ -84,6 +84,8 @@ class PandaReacherEnv(gym.Env):
         pos = self.panda_client.O_P_EE
         vel = self.panda_client.O_V_EE
         obs = np.concatenate((pos, vel), axis=0)
+
+       
         return obs
 
     def close(self):

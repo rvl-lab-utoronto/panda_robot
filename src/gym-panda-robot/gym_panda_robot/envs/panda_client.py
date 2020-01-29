@@ -443,6 +443,12 @@ class PandaClient(object):
         except rospy.ServiceException, e:
             print "Service call failed: %s"%e
 
+    def is_in_contact_mode(self):
+        if self.franka_state is None:
+            return False
+
+        return any(self.franka_state.joint_contact)
+            
     def is_in_collision_mode(self):
         if self.franka_state is None:
             return False

@@ -64,6 +64,9 @@ def main():
     env.panda_client.set_collision_behavior()
     
     while not rospy.is_shutdown():
+        if env.panda_client.is_in_contact_mode():
+            print ('Contact detected')
+        
         if env.panda_client.is_in_collision_mode():
             print ('Error')
             res = env.panda_client.recover_from_errors()
