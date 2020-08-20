@@ -1,3 +1,7 @@
+# RVL University of Toronto
+
+This repository contains instructions for creating Gym like interfaces using the real Franka Emika Panda arm, for prototyping RL algorithms.
+
 # Running the Panda Arm through ROS or OpenAI Gym 
 
 We assume there are two Ubuntu 18.04 machines: one running real-time Linux (let's assume it's an Intel NUC), called NUC and connected directly to the Franka FCI computer via the network 192.168.131.x, and another (let's assume it's a GPU-enabled machine), called GPU and connected to the NUC via the network 192.168.132.x. We assume you have followed the instructions for setting up ROS communication between different machines. 
@@ -60,4 +64,6 @@ python panda_env_test.py
 This simple test should make the robot move along the x,y and z axes in cartesian velocity mode, and occasionally
 will reset to the home configuration.
 
+## Contributors 
 
+@florianshkurti @homangab
