@@ -1,6 +1,6 @@
 # RVL University of Toronto
 
-This repository contains instructions for creating Gym like interfaces using the real Franka Emika Panda arm, for prototyping RL algorithms.
+This repository contains instructions for creating Gym like interfaces through ROS using the real Franka Emika Panda arm, for prototyping RL algorithms.
 
 # Running the Panda Arm through ROS or OpenAI Gym 
 
@@ -66,4 +66,4 @@ will reset to the home configuration.
 
 ## Contributors 
 
-@florianshkurti @homangab
+@florianshkurti @homangab @cheneyuwu
